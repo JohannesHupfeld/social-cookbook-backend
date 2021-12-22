@@ -14,7 +14,7 @@
   - validates :email, presence: true, uniqueness: true
 -----------------------------------------------------
 
-## _RECIPES_
+## _RECIPE_
 ### *Attributes*
   - Name
   - Ingredients
@@ -31,7 +31,7 @@
   - validates :name, :instructions, :ingredients, presence: true
 -----------------------------------------------------
 
-## _COMMENTS_ 
+## _COMMENT_ 
 ### *Attributes*
   - Content
   - user_id
