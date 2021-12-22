@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_12_22_162505) do
     t.string "instructions"
     t.string "image_url"
     t.integer "user_id"
-    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
