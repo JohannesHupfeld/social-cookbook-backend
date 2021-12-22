@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   
-  resources :categories
-  resources :comments
   namespace:api do
     namespace:v1 do
+      resources :categories
+      resources :comments
       resources :recipes
       resources :users
     end
