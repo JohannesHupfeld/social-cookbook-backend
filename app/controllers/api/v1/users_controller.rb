@@ -7,10 +7,12 @@ class Api::V1::UsersController < ApplicationController
 
     render json: @users
   end
-
+  
   # GET /users/1
   def show
-    render json: @user
+    # render json: @user
+    user_json = UserSerializer.new(@user).serializable_hash.to_json
+    render json: user_json
   end
 
   # POST /users

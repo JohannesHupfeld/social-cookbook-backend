@@ -10,7 +10,9 @@ class Api::V1::RecipesController < ApplicationController
 
   # GET /recipes/1
   def show
-    render json: @recipe
+    # render json: @recipe
+    recipe_json = RecipeSerializer.new(@recipe).serializable_hash.to_json
+    render json: recipe_json
   end
 
   # POST /recipes
