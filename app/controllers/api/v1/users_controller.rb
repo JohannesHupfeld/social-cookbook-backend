@@ -11,7 +11,7 @@ class Api::V1::UsersController < ApplicationController
   # GET /users/1
   def show
     # render json: @user
-    user_json = UserSerializer.new(@user).serializable_hash.to_json
+    user_json = UserSerializer.new(@user).serialized_json
     render json: user_json
   end
 
@@ -20,8 +20,12 @@ class Api::V1::UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       render json: @user, status: :created, location: @user
     else
+      resp = {
+        error: @user.errors.full_messages.to_sentence
+      }
       render json: @user.errors, status: :unprocessable_entity
     end
   end
@@ -48,6 +52,6 @@ class Api::V1::UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :username, :password_digest, :recipe_id, :comment_id)
+      params.require(:user).permit(:name, :username, :password, :recipe_id, :comment_id)
     end
 end
