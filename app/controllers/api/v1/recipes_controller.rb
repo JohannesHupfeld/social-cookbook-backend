@@ -3,9 +3,14 @@ class Api::V1::RecipesController < ApplicationController
 
   # GET /recipes
   def index
-    @recipes = Recipe.all
-
-    render json: @recipes
+    if logged_in?
+      @recipes = current_user.recipes
+      render json: @recipes
+    else
+      render json: {
+        error: "Must be logged in to view recipes"
+      }
+    end
   end
 
   # GET /recipes/1
