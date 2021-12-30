@@ -4,8 +4,9 @@ class Api::V1::RecipesController < ApplicationController
   # GET /recipes
   def index
     if logged_in?
+      byebug
       @recipes = current_user.recipes
-      render json: @recipes
+      render json: RecipeSerializer.new(@recipes)
     else
       render json: {
         error: "Must be logged in to view recipes"
