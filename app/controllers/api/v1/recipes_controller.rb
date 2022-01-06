@@ -22,13 +22,13 @@ class Api::V1::RecipesController < ApplicationController
 
   # POST /recipes
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
       render json: RecipeSerializer.new(@recipe), status: :created
     else
       resp = {
-        error: @user.errors.full_messages.to_sentence
+        error: @recipe.errors.full_messages.to_sentence
       }
       render json: @recipe.errors, status: :unprocessable_entity
     end
