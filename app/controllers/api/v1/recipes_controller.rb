@@ -37,8 +37,12 @@ class Api::V1::RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   def update
     if @recipe.update(recipe_params)
-      render json: @recipe
+      # render json: @recipe
+      render json: RecipeSerializer.new(@recipe), status: :updated 
     else
+      resp = {
+        error: @recipe.errors.full_messages.to_sentence
+      }
       render json: @recipe.errors, status: :unprocessable_entity
     end
   end
