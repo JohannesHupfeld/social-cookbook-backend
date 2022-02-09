@@ -1,24 +1,42 @@
-# README
+# Rails Cookbook
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the API Backend for The Social CookBook application. *** add more when completed
 
-Things you may want to cover:
+## Instalation
 
-* Ruby version
+Clone the repo and install dependencies
 
-* System dependencies
+```bash
+$ git clone https://github.com/JohannesHupfeld/social-cookbook-backend
+$ bundle install
+```
+...if you have any issues delete gemfile.lock and bundle install again.
 
-* Configuration
+Migrate
 
-* Database creation
+```bash
+$ rails db:migrate
+```
+## Development
 
-* Database initialization
+After installation, run 
 
-* How to run the test suite
+```bash
+$ rails s
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+and open up your web browser to 'locolhost:3000'
 
-* Deployment instructions
+## Contributing
 
-* ...
+Bug reports and pull requests are welcome on GitHub at https://github.com/JohannesHupfeld/social-cookbook-backend. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The code is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the cookbook_rails project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/JohannesHupfeld/CookBook/blob/master/CODE_OF_CONDUCT.md).
+
+
